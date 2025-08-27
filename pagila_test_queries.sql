@@ -155,7 +155,7 @@ ORDER BY
 WITH category_stats_for_cities_starting_with_a AS (
     SELECT 
         cat.name AS category_name,
-        SUM(f.length) AS total_rental_hours
+        SUM(f.rental_duration) AS total_rental_hours
     FROM 
         public.rental r
     JOIN public.inventory i ON r.inventory_id = i.inventory_id
@@ -176,7 +176,7 @@ WITH category_stats_for_cities_starting_with_a AS (
 category_stats_for_cities_with_dash AS (
     SELECT 
         cat.name AS category_name,
-        SUM(f.length) AS total_rental_hours
+        SUM(f.rental_duration) AS total_rental_hours
     FROM 
         public.rental r
     JOIN public.inventory i ON r.inventory_id = i.inventory_id
